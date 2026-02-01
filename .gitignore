@@ -14,3 +14,7 @@ db.sqlite3
 # Editor/OS junk
 .vscode/
 .DS_Store
+
+# book chapter test files
+tests_chapter*.py
+test_chapter*.py
