@@ -87,18 +87,15 @@ def index(request):
     # Call the helper function to handle the cookies
     visitor_cookie_handler(request)
 
-    # Get the number of visits from the session.
-    context_dict['visits'] = request.session['visits']
-
     # Render the response and return it
     response = render(request, 'rango/index.html', context=context_dict)
     return response
 
 def about(request):
     context_dict = {'author': 'Magnus'}
-
+    visitor_cookie_handler(request)
+    context_dict = {'visits': request.session['visits']}
     return render(request, 'rango/about.html', context=context_dict)
-
 
 @login_required
 def add_category(request):
